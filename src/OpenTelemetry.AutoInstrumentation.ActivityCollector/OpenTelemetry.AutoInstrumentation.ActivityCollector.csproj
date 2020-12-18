@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-      <TargetFrameworks>net45;net461;netstandard2.0;netcoreapp3.1</TargetFrameworks>
-      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFrameworks>net45;net461;netstandard2.0;netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -21,22 +20,18 @@
       <IncludedSharedItem Include="..\Shared\Datadog.Util\internal\Concurrent.cs" />
       <IncludedSharedItem Include="..\Shared\Datadog.Util\internal\Format.cs" />
       <IncludedSharedItem Include="..\Shared\Datadog.Util\internal\Validate.cs" />
+      <IncludedSharedItem Include="..\Shared\Datadog.Collections\internal\GrowingCollection.cs" />
 
-      <ExcludedSharedItems Include="..\Shared\**\*.cs" Exclude="@(IncludedSharedItem)" />
+    <ExcludedSharedItems Include="..\Shared\**\*.cs" Exclude="@(IncludedSharedItem)" />
       <Compile Include="..\Shared\**\*.cs" Exclude="@(ExcludedSharedItems)" />
   </ItemGroup>
 
   <ItemGroup>
-      <Compile Remove="System.Diagnostics\**\*" />
-  </ItemGroup>
-
-  <ItemGroup>
-      <None Include="System.Diagnostics\**\*" />
+    <ProjectReference Include="..\OpenTelemetry.DynamicActivityBinding\OpenTelemetry.DynamicActivityBinding.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
-      <NoWarn>1591</NoWarn>
-      <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+      <!-- <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild> -->
   </PropertyGroup>
 
 </Project>
