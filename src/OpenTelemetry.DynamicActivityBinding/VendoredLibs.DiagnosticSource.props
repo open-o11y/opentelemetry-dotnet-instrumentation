@@ -31,6 +31,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="$(VendoredPath_DiagnosticSource)**/*.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="$(VendoredPath_DiagnosticSource)System\Buffers\Binary\Reader.cs" />
     <Compile Include="$(VendoredPath_DiagnosticSource)System\Buffers\Text\Utf8Parser\ParserHelpers.cs" />
     <Compile Include="$(VendoredPath_DiagnosticSource)System\Buffers\Text\Utf8Parser\Utf8Parser.Integer.Unsigned.X.cs" />
@@ -85,7 +89,6 @@
   </ItemGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Compile Include="$(VendoredPath_DiagnosticSource)System\Diagnostics\HttpHandlerDiagnosticListener.cs" />
-    <Compile Include="$(VendoredPath_DiagnosticSource)AssemblyInfo.netfx.cs" />
     <Compile Include="$(VendoredPath_DiagnosticSource)System\Diagnostics\Activity.DateTime.netfx.cs" />
   </ItemGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
@@ -101,6 +104,9 @@
     <Reference Include="System.Resources.ResourceManager" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard1.1' and '$(TargetFramework)' != '$(NetCoreAppCurrent)'">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(VendoredPath_DiagnosticSource)System.Diagnostics.Resources.Strings.resx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="$(VendoredPath_DiagnosticSource)System.Diagnostics.Resources.Strings.Designer.cs">
